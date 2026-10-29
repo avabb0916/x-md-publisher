@@ -37,7 +37,8 @@ function usage() {
 `);
 }
 
-if (!file || has('--help') || has('-h')) { usage(); process.exit(file ? 0 : 1); }
+if (has('--help') || has('-h')) { usage(); process.exit(0); }
+if (!file) { usage(); process.exit(1); }
 
 const parsed = readMarkdown(file);
 const title = flag('--title') || parsed.title;
