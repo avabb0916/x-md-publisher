@@ -1,0 +1,15 @@
+{
+  "name": "x-md-publisher",
+  "version": "0.1.0",
+  "description": "Publish Markdown articles as X (Twitter) Article drafts — with inline images, cover, and no official API key.",
+  "type": "module",
+  "bin": { "xpub": "./bin/xpub.mjs" },
+  "scripts": {
+    "dry": "node bin/xpub.mjs --dry-run examples/sample-article.md",
+    "pub": "node bin/xpub.mjs examples/sample-article.md"
+  },
+  "dependencies": { "puppeteer-core": "^24.0.0" },
+  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "keywords": ["x", "twitter", "articles", "markdown", "publisher", "draft", "playwright", "cdp"]
+}
