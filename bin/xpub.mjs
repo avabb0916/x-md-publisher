@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 // xpub — 把 Markdown 发成 X 文章草稿（含图与封面），不发布，只建草稿。
 import fs from 'fs';
+import os from 'os';
 import path from 'path';
 import crypto from 'crypto';
 import puppeteer from 'puppeteer-core';
 import { defaults } from '../lib/config.mjs';
 import { ensureChrome } from '../lib/chrome.mjs';
-import { readMarkdown, buildContentState } from '../lib/md.mjs';
+import { readMarkdown, buildContentState, appendFooter } from '../lib/md.mjs';
 import { uploadMedia, createDraft, updateContent, setCover } from '../lib/x.mjs';
 
 const args = process.argv.slice(2);
@@ -40,7 +41,13 @@ function usage() {
 if (has('--help') || has('-h')) { usage(); process.exit(0); }
 if (!file) { usage(); process.exit(1); }
 
-const parsed = readMarkdown(file);
+let parsed = readMarkdown(file);
+// 默认文末：~/.config/xpub/footer.md（可用 --no-footer 关闭，--footer 指定）
+const FOOTER_DEFAULT = path.join(os.homedir(), '.config', 'xpub', 'footer.md');
+if (!has('--no-footer')) {
+  const footerPath = flag('--footer', FOOTER_DEFAULT);
+  if (fs.existsSync(footerPath)) parsed = appendFooter(parsed, footerPath);
+}
 const title = flag('--title') || parsed.title;
 const coverFromFm = (() => {
   const txt = fs.readFileSync(file, 'utf8');

@@ -90,6 +90,8 @@ xpub <article.md> [选项]
 | `--port <端口>` | CDP 端口，默认 9222 |
 | `--profile <目录>` | Chrome 独立配置目录 |
 | `--verbose` | 打印上传明细 |
+| `--footer <md>` | 追加文末片段（默认读 `~/.config/xpub/footer.md`） |
+| `--no-footer` | 不追加文末 |
 
 环境变量：`XPUB_CDP_PORT`、`XPUB_CHROME`、`XPUB_CHROME_PROFILE`、`XPUB_CONFIG_DIR`、`XPUB_BEARER`。
 
