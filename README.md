@@ -148,6 +148,15 @@ docs/               SETUP / LIMITS / FAQ
 
 - [内容工厂技能包](https://github.com/avabb0916) —— 从选题到质检的写作流程（可配合本工具使用）
 
+## 配套项目
+
+| 项目 | 作用 |
+|---|---|
+| [md2wechat](https://github.com/avabb0916/md2wechat) | Markdown → 公众号草稿（同一思路，公众号版） |
+| [x-article-factory](https://github.com/avabb0916/x-article-factory) | 发布前质检 + 配图生成 |
+| [agent-skill-content-factory](https://github.com/avabb0916/agent-skill-content-factory) | 写作流程 Skill |
+| [x-article-template](https://github.com/avabb0916/x-article-template) | 内容仓库模板（含 CI 检查） |
+
 ## 免责声明
 
 本项目使用 X 网页端内部接口，属于非官方实现，可能因 X 改版失效；请遵守 X 的服务条款，风险自负。
