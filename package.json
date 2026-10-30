@@ -1,6 +1,6 @@
 {
   "name": "x-md-publisher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Publish Markdown articles as X (Twitter) Article drafts — with inline images, cover, and no official API key.",
   "type": "module",
   "bin": {
